@@ -5,7 +5,7 @@ def d(n):
         cons = i #생성자
         num = cons + sum(map(int,dig))
         cons_list.append(num)
-        cons_list.sort()
+#        cons_list.sort()
 
     for j in range(1,n+1):
         if j in cons_list:
