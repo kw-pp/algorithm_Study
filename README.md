@@ -7,11 +7,14 @@
 * 단계별로 풀어보기([https://www.acmicpc.net/step](https://www.acmicpc.net/step))
     ```
     > 단계(1~4, 입출력부터 While문까지) : 한 문제씩
-    >    >
     > 단계(5~10, 배열부터 재귀까지) : 두 문제씩
     > 단계(11~, 브루트포스부터) : ?? 진행
     ```
 
+* 프로그래머스 코테 연습([https://programmers.co.kr/learn/challenges?tab=all_challenges](https://programmers.co.kr/learn/challenges?tab=all_challenges))
+    ```
+    > 실제 기업 코딩테스트 문제 
+    ```
 
 * 삼성 SW역량테스트([https://swexpertacademy.com/main/sst/intro.do](https://swexpertacademy.com/main/sst/intro.do))
 <img src='https://user-images.githubusercontent.com/38692338/104296717-5b4e7d00-5505-11eb-99d7-dcf37488c97f.png'>
