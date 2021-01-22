@@ -12,6 +12,8 @@
     ```
 * 게임처럼 백준 경험치 쌓기([https://solved.ac/](https://solved.ac/))
 
+* 자주 출제되는 Top100 문제([https://leetcode.com/problemset/top-100-liked-questions/](https://leetcode.com/problemset/top-100-liked-questions/))
+
 * 프로그래머스 코테 연습([https://programmers.co.kr/learn/challenges?tab=all_challenges](https://programmers.co.kr/learn/challenges?tab=all_challenges))
     ```
     > 실제 기업 코딩테스트 문제 
@@ -29,7 +31,7 @@
 <br></br>
 ### 스터디 규칙
 
-    1. 하루에 개인문제 하나, 일주일에 공동문제 하나
+    1. 시작 날짜부터 하루에 개인문제 하나, 2월 중순부터 일주일에 공동문제 하나
     2. 공동문제는 [각자 풀기]-[깃허브에 커밋]-[서로 코드 피드백]-[확인 및 수정]으로 진행
     3. 
     
