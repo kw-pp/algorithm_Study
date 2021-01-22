@@ -10,6 +10,7 @@
     > 단계(5~10, 배열부터 재귀까지) : 두 문제씩
     > 단계(11~, 브루트포스부터) : ?? 진행
     ```
+* 게임처럼 백준 경험치 쌓기([https://solved.ac/](https://solved.ac/))
 
 * 프로그래머스 코테 연습([https://programmers.co.kr/learn/challenges?tab=all_challenges](https://programmers.co.kr/learn/challenges?tab=all_challenges))
     ```
