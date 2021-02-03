@@ -1,5 +1,5 @@
 import sys
-
+#input()은 속도가 느리다. system 라이브러리를 불러와 sys.stdin.readline을 쓰면 빠
 N = int(sys.stdin.readline())
 
 A = [0] * 10001
