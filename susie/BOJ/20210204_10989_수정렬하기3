@@ -1,0 +1,13 @@
+import sys
+
+N = int(sys.stdin.readline())
+
+A = [0] * 10001
+
+for x in range(N):
+    A[int(sys.stdin.readline())] += 1
+
+for x in range(10001):
+    if A[x] != 0:
+        for y in range(A[x]):
+            print(x)
