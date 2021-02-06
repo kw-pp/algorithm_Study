@@ -1,0 +1,23 @@
+#N-Queen 문제
+N = int(input())
+
+x = [0 for i in range(N)]
+y = [0 for i in range(2*N-1)]
+z = [0 for i in range(2*N-1)]
+
+count = 0
+def N_Queen(num):
+    global count
+
+    if num == N:
+        count += 1
+        return
+
+    for i in range(N):
+        if x[i] + y[num+i] + z[N-1+num-i] == 0:
+            x[i] = y[num+i] = z[N-1+num-i] = 1
+            N_Queen(num+1)
+            x[i] = y[num+i] = z[N-1+num-i] = 0
+
+N_Queen(0)
+print(count)
