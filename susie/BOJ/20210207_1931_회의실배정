@@ -1,4 +1,5 @@
 N = int(input())
+#여러 줄 한꺼번에 받아서 2차원 리스트로 생성. 내부 요소 데이터 타입은 int
 num_list = [list(map(int, input().split())) for _ in range(N)]
 num_list.sort(key=lambda x:x[0])
 num_list.sort(key=lambda x:x[1])
