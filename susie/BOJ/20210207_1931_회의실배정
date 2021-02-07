@@ -1,0 +1,13 @@
+N = int(input())
+num_list = [list(map(int, input().split())) for _ in range(N)]
+num_list.sort(key=lambda x:x[0])
+num_list.sort(key=lambda x:x[1])
+choose = 0
+count = 0
+
+for x,y in num_list:
+    if x >= choose:
+        count += 1
+        choose = y
+
+print(count)
