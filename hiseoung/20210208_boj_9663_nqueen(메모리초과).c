@@ -80,13 +80,6 @@ int main(void)
         for (int j = 0; j < N; j++) arr[i][j] = 1;
     }
 
-    int** b;
-    b = (int**)malloc(sizeof(int*) * N);
-    for (int i = 0; i < N; i++) {
-        b[i] = (int*)malloc(sizeof(int) * N);
-    }
-
-
 
     NQueen(N, r, arr);
     printf("%d", cnt);
