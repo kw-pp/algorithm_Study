@@ -1,0 +1,35 @@
+N = int(input())
+list1 = [list(map(int, input().split())) for _ in range(N)]
+
+visited = [0] * N
+count = 10**7
+charge = 0
+#리스트로 문제 해결시 메모리 사용량은 동일, 시간 up => 딕셔너리 사용시 시간 효율성 up
+dic = {}
+
+def TSP(start, depth):
+    global count, charge
+
+    if depth == N:
+        if list1[start][0] != 0:
+            count = min(count, charge + list1[start][0])
+        return
+
+    visited[start] = 1
+
+    for x in dic[start]:
+        if not visited[x]:
+            charge += list1[start][x]
+            TSP(x, depth+1)
+            charge -= list1[start][x]
+    visited[start] = 0
+
+for x in range(N):
+    dic[x] = []
+    for y in range(N):
+        if list1[x][y] != 0:
+            dic[x].append(y)
+
+TSP(0, 1)
+print(count)
+    
