@@ -1,0 +1,55 @@
+참고자료 : 데이터표류기(https://statssy.github.io/alg/2019/09/06/baekjoon_10971/)
+
+""" 순열+브루트포스+리스트를 이용하여 푸는 방법 """ 
+
+# 다음 순열 리스트 만드는 함수
+def next_permutation(a):
+    n = len(a) - 1
+    i = n
+    while i > 0 and a[i-1] >= a[i]:
+        i -= 1
+    if i == 0:
+        return False
+    j = n
+    while a[i-1] >= a[j]:
+        j -= 1
+    a[i-1], a[j] = a[j], a[i-1]
+    j = n
+    while i < j:
+        a[i], a[j] = a[j], a[i]
+        i += 1
+        j -= 1
+    return True
+
+# 길의 합을 구하는 함수(가다가 0이 나오면 0으로 리턴해줌
+def way_sum(w, d) :
+    n = len(d)
+    sum = 0
+    for i in range(n-1) :
+        if w[d[i]][d[i+1]] == 0 :
+            return 0
+        else :
+            sum += w[d[i]][d[i+1]]
+    if w[d[n-1]][d[0]] == 0 :
+        return 0
+    else :
+        sum += w[d[n-1]][d[0]];
+        return sum
+
+# 입력값 넣기
+n = int(input())
+w = []
+for i in range(n) :
+    w.append(list(map(int, input().split())))
+d = []
+for i in range(n) :
+    d.append(i)
+
+# 0이 아니거나 최저비용이면 ans로 저장
+ans = 1000000*n
+while next_permutation(d) is True :
+    sum = way_sum(w,d)
+    next_permutation(d)
+    if (sum != 0) and (ans > sum) :
+        ans = sum
+print(ans)
