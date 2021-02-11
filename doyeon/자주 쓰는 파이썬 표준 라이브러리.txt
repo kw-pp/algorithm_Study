@@ -50,6 +50,8 @@ data.appendleft(1)
 data.append(5)
 print(data) => deque([1,2,3,4,5])
 print(list(data)) => [1,2,3,4,5]
+data.popleft()
+print(data) => deque([2,3,4,5])
 
 # 등장 횟수 세는 기능
 from collections import Counter
