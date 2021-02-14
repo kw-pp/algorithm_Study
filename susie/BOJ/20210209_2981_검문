@@ -1,0 +1,26 @@
+#유클리드 호제법을 이용하는 문제.
+import math
+
+N = int(input())
+list1 = []
+list2 = []
+gcd = 0
+
+for i in range(N):
+    list1.append(int(input()))
+    if i == 1:
+        gcd = abs(list1[i] - list1[i-1])
+    gcd = math.gcd(abs(list1[i] - list1[i - 1]), gcd)
+
+for i in range(2, int(gcd ** 0.5) + 1):
+    if gcd % i == 0:
+        list2.append(i)
+        list2.append(gcd // i)
+list2.append(gcd)
+list2 = list(set(list2))
+list2.sort()
+for x in range(len(list2)):
+    if list2[x] == list2[-1]:
+        print(list2[x])
+    else:
+        print(list2[x], end = ' ')
