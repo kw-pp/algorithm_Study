@@ -1,0 +1,10 @@
+def countNum(N, num):
+    count = 0
+    divNum = num
+    while(N>=divNum):
+        count = count + (N // divNum)
+        divNum = divNum * num
+    return count
+
+n, m = map(int, input().split())
+print(min(countNum(n, 5) - countNum(m, 5) - countNum(n-m, 5), countNum(n, 2) - countNum(m, 2) - countNum(n-m, 2)))
