@@ -1,0 +1,19 @@
+n = int(input())
+string = []
+operation = []
+count = 1
+for _ in range(n):
+    num = int(input())
+    while count <= num:
+        string.append(count)
+        operation.append('+')
+        count += 1
+    if string[-1] == num:
+        string.pop()
+        operation.append('-')
+    else:
+        print('NO')
+        break
+if len(string) == 0:
+    for x in operation:
+        print(x)
