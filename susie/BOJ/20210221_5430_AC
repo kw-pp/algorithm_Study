@@ -1,0 +1,33 @@
+def AC(string, n, li):
+    string.replace('RR', '')
+    l, r, d = 0, 0, True
+    for c in string:
+        if c == 'R':
+            d = not d
+        elif c == 'D':
+            if d:
+                l += 1
+            else:
+                r += 1
+    if l+r <= n:
+        res = li[l:n - r]
+        if d:
+            return '[' + ','.join(res) + ']'
+        else:
+            return '[' + ','.join(res[::-1]) + ']'
+    else:
+        return 'error'
+    
+T = int(input())
+output = []
+
+for _ in range(T):
+    string = input()
+    n = int(input())
+    li = input()[1:-1].split(',')
+    if n == 0 : []
+
+    output.append(AC(string, n, li))
+
+for x in output:
+    print(x)
