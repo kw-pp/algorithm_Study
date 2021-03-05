@@ -17,6 +17,24 @@
 * 프로그래머스 코테 연습([https://programmers.co.kr/learn/challenges?tab=all_challenges](https://programmers.co.kr/learn/challenges?tab=all_challenges))
     ```
     > 실제 기업 코딩테스트 문제 
+      1) 그리디 문제
+      https://programmers.co.kr/learn/courses/30/lessons/42891
+      2) 구현 문제
+      https://programmers.co.kr/learn/courses/30/lessons/60057
+      https://programmers.co.kr/learn/courses/30/lessons/60059
+      https://programmers.co.kr/learn/courses/30/lessons/3190
+      https://programmers.co.kr/learn/courses/30/lessons/60061
+      https://programmers.co.kr/learn/courses/30/lessons/60062
+      3) DFS/BFS 문제
+      https://programmers.co.kr/learn/courses/30/lessons/60058
+      https://programmers.co.kr/learn/courses/30/lessons/60063
+      4) 정렬 문제
+      https://programmers.co.kr/learn/courses/30/lessons/42889
+      5) 이진 탐색 문제
+      https://programmers.co.kr/learn/courses/30/lessons/60060
+      6) 다이나믹 프로그래밍 문제
+      7) 최단 경로 문제
+      8) 그래프 이론 문제
     ```
 
 * 삼성 SW역량테스트([https://swexpertacademy.com/main/sst/intro.do](https://swexpertacademy.com/main/sst/intro.do))
