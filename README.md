@@ -2,7 +2,7 @@
 ## 1일 1백준
 ### 김도연 / 안희승 / 최수지 / 이윤희
 ### 2021.01.11 ~
-### 2021.03.08 NEW MEMBER 윤희 🎉
+### 2021.03.08 [NEW MEMBER 윤희] 🎉
 
 * 단계별로 풀어보기([https://www.acmicpc.net/step](https://www.acmicpc.net/step))
     ```
