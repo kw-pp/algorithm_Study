@@ -1,0 +1,31 @@
+N = int(input())
+
+money = 1000 - N
+count = 0
+
+while (money != 0):
+    if len(str(money)) == 3:
+        if int(str(money)[0]) >= 5:
+            money -= 500
+            count += 1
+        else:
+            count += int(str(money)[0])
+            money -= int(str(money)[0]) * 100
+
+    elif len(str(money)) == 2:
+        if int(str(money)[0]) >= 5:
+            money -= 50
+            count += 1
+        else:
+            count += int(str(money)[0])
+            money -= int(str(money)[0]) * 10
+
+    elif len(str(money)) == 1:
+        if int(str(money)[0]) >= 5:
+            money -= 5
+            count += 1
+        else:
+            count += int(str(money)[0])
+            money -= int(str(money)[0])
+
+print(count)
