@@ -1,0 +1,3 @@
+N = int(input())
+string = input()
+print(min(N,N+1-string.count('LL')))
