@@ -1,0 +1,21 @@
+#리스트의 인덱스를 이용하여 2차원처럼 활용하기 & for문 & count & 대소비교를 이용한 정석적인 문제
+T = int(input())
+
+for x in range(T):
+    N = int(input())
+    li = [0 for x in range(N+1)]
+
+    for y in range(N):
+        k,v = map(int, input().split())
+        li[k] = v
+
+    key = li[1]
+    count = 0
+
+    for y in range(2,N+1):
+        if li[y] > key:
+            count += 1
+        else:
+            key = li[y]
+
+    print(N-count)
