@@ -1,0 +1,16 @@
+#re를 사용하지 않고 해결하려고 할 것
+string = input().split('-')
+cal = []
+
+for x in string:
+    count = 0
+    s = x.split('+')
+    for y in s:
+        count += int(y)
+    cal.append(count)
+
+result = cal[0]
+for x in range(1, len(cal)):
+    result -= cal[x]
+
+print(result)
