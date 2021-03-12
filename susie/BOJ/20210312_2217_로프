@@ -1,0 +1,24 @@
+# 내가 푼 코드
+N = int(input())
+w = []
+N_w = []
+for _ in range(N):
+    w.append(int(input()))
+w.sort()
+
+for x in range(N):
+    N_w.append(w[x]*(N-x))
+
+print(max(N_w))
+
+# Greedy의 정석
+N = int(input())
+ropeInfo = sorted([int(input()) for _ in range(N)])
+result = 0
+
+for x in range(N):
+    result = max(result, ropeInfo[x]*(N-x))
+
+print(result)
+
+#여기서 시간을 획기적으로 줄이는 방법. import sys + input() 대신 sys.stdin.readline()으로 작성 
