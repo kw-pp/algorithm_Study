@@ -12,8 +12,8 @@
 * 프로그래머스 코테 연습([https://programmers.co.kr/learn/challenges?tab=all_challenges](https://programmers.co.kr/learn/challenges?tab=all_challenges))
     ```
     > 실제 기업 코딩테스트 문제 
-      1) 그리디 문제
-      https://programmers.co.kr/learn/courses/30/lessons/42891
+      1) 그리디 문제([https://programmers.co.kr/learn/courses/30/lessons/42891])
+      
       2) 구현 문제
       https://programmers.co.kr/learn/courses/30/lessons/60057
       https://programmers.co.kr/learn/courses/30/lessons/60059
