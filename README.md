@@ -5,6 +5,11 @@
 #### 2021.01.11 ~
 #### 2021.03.08 [NEW MEMBER 윤희] 🎉
 
+### 스터디 규칙
+
+    1. 시작 날짜부터 하루에 개인문제 하나, 2월 중순부터 일주일에 공동문제 하나
+    2. 공동문제는 오프라인 회의, [각자 풀기]-[깃허브에 커밋]-[서로 코드 피드백]-[확인 및 수정]으로 진행
+
 * 게임처럼 백준 경험치 쌓기([https://solved.ac/](https://solved.ac/))
 
 * 자주 출제되는 Top100 문제([https://leetcode.com/problemset/top-100-liked-questions/](https://leetcode.com/problemset/top-100-liked-questions/))
@@ -41,10 +46,6 @@
 * 알고리즘 공부 방법 참고 사이트
  > 알고리즘 공부 방법([https://devpad.tistory.com/15?category=773029](https://devpad.tistory.com/15?category=773029))
 
-### 스터디 규칙
-
-    1. 시작 날짜부터 하루에 개인문제 하나, 2월 중순부터 일주일에 공동문제 하나
-    2. 공동문제는 오프라인 회의, [각자 풀기]-[깃허브에 커밋]-[서로 코드 피드백]-[확인 및 수정]으로 진행
 <br></br>
 ---
 <br></br>
