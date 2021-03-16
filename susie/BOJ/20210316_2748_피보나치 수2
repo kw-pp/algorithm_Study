@@ -1,0 +1,8 @@
+n = int(input())
+a,b = 0,1
+li = []
+for x in range(n+1):
+    li.append(a)
+    a,b = b, a+b
+
+print(li[n])
