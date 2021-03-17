@@ -1,0 +1,10 @@
+#부분집합과는 상관없이, 단방향이므로 더해가면서 계속 대소비교만 하면 된다.
+
+n = int(input())
+li = [int(x) for x in input().strip().split()]
+result = [li[0]]
+
+for x in range(n-1):
+    result.append(max(result[x] + li[x+1],li[x+1]))
+
+print(max(result))
