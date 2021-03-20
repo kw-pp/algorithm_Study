@@ -1,0 +1,28 @@
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10**9)
+
+def dfs(x, y):
+    if x == M-1 and y == N-1:
+        return 1
+    rtn = 0
+
+    for d in range(4):
+        i, j = x + dx[d], y + dy[d]
+        if 0 <= i < M and 0 <= j < N and li[i][j] < li[x][y]:
+            if visited[i][j] >= 0:
+                rtn += visited[i][j]
+            else:
+                rtn += dfs(i,j)
+    visited[x][y] = rtn
+    return rtn
+
+M,N = map(int, input().split())
+li = [list(map(int,input().split())) for _ in range(M)]
+visited = [[-1] * N for _ in range(M)]
+visited[0][0] = 0
+dx, dy = [1,-1,0,0],[0,0,1,-1]
+print(dfs(0,0))
+
+
+        
