@@ -2,11 +2,11 @@
 
 ### 피보나치 수
 피보나치 수를 푸는 세 가지 방법([https://makefortune2.tistory.com/60](https://makefortune2.tistory.com/60))  
--재귀 BigO(2**N)
--DP BigO(N**2)
--for문 BigO(N)
++ 재귀 BigO(2**N)
++ DP BigO(N**2)
++ for문 BigO(N)
 
 ### 외판원 순회(TSP)
 NP-hard 문제로 이 문제를 푸는 세 가지 방법([https://sungwoo91.tistory.com/1])(https://sungwoo91.tistory.com/1))  
--완전탐색 BigO(N!)
--DP BigO(N*(2**N)) + (BitMasK method)
++ 완전탐색 BigO(N!)
++ DP BigO(N*(2**N)) + (BitMasK method)
