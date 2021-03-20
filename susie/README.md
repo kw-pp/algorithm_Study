@@ -11,3 +11,7 @@
 NP-hard 문제로 이 문제를 푸는 세 가지 방법([https://sungwoo91.tistory.com/1](https://sungwoo91.tistory.com/1))  
 + 완전탐색 BigO(N!)
 + DP BigO(N*(2**N)) + (BitMasK method)
+
+### 정렬(sort)
+리스트를 sort할 때 참고해야 할 자료([https://soooprmx.tistory.com/entry/%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A0%AC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95](https://soooprmx.tistory.com/entry/%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A0%AC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95))  
++ sort() VS sorted()
