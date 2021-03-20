@@ -5,3 +5,9 @@
 -재귀 BigO(2**N)
 -DP BigO(N**2)
 -for문 BigO(N)
+
+### 외판원 순회(TSP)
+NP-hard 문제로 이 문제를 푸는 세 가지 방법([https://sungwoo91.tistory.com/1])(https://sungwoo91.tistory.com/1))  
+-완전탐색 BigO(N!)
+-DP BigO(N*(2**N))
++ (BitMasK method)
