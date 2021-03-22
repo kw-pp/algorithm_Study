@@ -8,8 +8,8 @@
 #   graph.append(list(map(int, input().split())))
 
 # # 이동한 세 방향 정의(하, 좌, 우)
-# dx = [1, 0, 0]
-# dy = [0, -1, 1]
+# dx = [1, -1, 0, 0]
+# dy = [0, 0, -1, 1]
 
 # count = 0
 # queue = deque()
@@ -21,7 +21,7 @@
 #     count+=1
 #     continue
 #   # 현재 위치에서 세 방향으로의 위치 확인
-#   for i in range(3):
+#   for i in range(4):
 #     nx = x+dx[i]
 #     ny = y+dy[i]
 #     # 공간을 벗어난 경우 무시
