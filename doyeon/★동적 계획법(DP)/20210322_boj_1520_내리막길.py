@@ -42,7 +42,7 @@ def dfs(x, y):
         return 1
     if dp[x][y] == -1:
         dp[x][y] = 0
-        for i in range(3):
+        for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
             if 0 <= nx < m and 0 <= ny < n:
