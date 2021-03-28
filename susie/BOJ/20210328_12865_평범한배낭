@@ -1,0 +1,21 @@
+#리스트로 해결하는 방법, 공간복잡도+시간복잡도가 높게 나온다.
+
+import sys
+input = sys.stdin.readline
+def knap_sack(K, W, V, N):
+    dp = [[0 for _ in range(K + 1)] for _ in range(N + 1)] 
+    for i in range(N + 1): 
+        for j in range(K + 1):
+            if i == 0 or j == 0: 
+                dp[i][j] = 0
+            elif W[i-1] <=j:
+                dp[i][j] = max(V[i-1] + dp[i-1][j-W[i-1]], dp[i-1][j]) 
+            else: 
+                dp[i][j] = dp[i-1][j] 
+    return dp[N][K]
+
+N, K = map(int, input().split())
+W, V = [0] * N, [0] * N
+for x in range(N):
+    W[x],V[x] = map(int, input().split())
+print(knap_sack(K,W,V,N))
