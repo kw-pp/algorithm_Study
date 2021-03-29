@@ -1,18 +1,21 @@
 #딕셔너리를 사용하여 해결하는 방법, 시간복잡도+공간복잡도를 잡을 수 있다.
 
 import sys
-read = sys.stdin.readline
+input = sys.stdin.readline
 
-def dp(n, k):
-    dp_dict = {0: 0}
-    for _ in range(n):
-        new_w, new_v = map(int, read().split())
+def knap_sack(N, K):
+    dp = {0: 0}
+    for _ in in range(N):
+        W, V = map(int, input().split())
         temp = {}
-        for acc_w, acc_v in dp_dict.items():
-            if acc_w + new_w <= k and acc_v + new_v > dp_dict.get(acc_w + new_w, 0):
-                temp[acc_w + new_w] = acc_v + new_v
-        dp_dict.update(temp)
-    return max(dp_dict.values())
+        for k, v in dp.items():
+            if k + W <= K and v + V > dp.get(k+W, 0):
+            #만약 기존에 있는 물건값+새 물건값이 들 수 있는 무게보다 작거나 같다면,
+            #그리고 기존에 있는 물건의 값어치+새 물건의 값어치가 같은 무게를 가진 이의 값어치보다 크다면
+                temp[w + W] = v + V
+        dp.update(temp)
+    #여기서 가장 큰 값어치 반환
+    return max(dp.values())
 
-N, K = map(int, read().split())
-print(dp(N, K))
+N, K = map(int, input().split())
+print(knap_sack(N, K))
