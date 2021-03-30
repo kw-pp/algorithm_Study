@@ -11,10 +11,7 @@ def knap_sack(N, K):
             # 그리고, ? 
             if k + W <= K and v + V > dp.get(k+W,0): # get(key가 없는경우, 'default'값 반환)
                 temp[k + W] = v + V
-
         dp.update(temp)
-        print(temp)
-    print(dp)
         
     return max(dp.values())
 
