@@ -1,0 +1,27 @@
+#New code
+f = open(0) 
+f.readline()
+li=[0]*10001
+for line in f:
+    li[int(line)] += 1
+
+for i in range(1, 10001):
+    print(f'{i}\n' * li[i], end='')
+    
+#Previous code
+import sys
+input = sys.stdin.readline
+
+result = [0] * 10001
+N = int(input())
+
+for _ in range(N):
+    x = int(input())
+    result[x] += 1
+
+for i in range(1,10001):
+    if result[i] != 0:
+        for _ in range(result[i]):
+            print(i)
+
+한 줄에 한개의 수가 여러줄이므로, 한꺼번에 읽어 들이는 방식이 시간을 단축한다.
