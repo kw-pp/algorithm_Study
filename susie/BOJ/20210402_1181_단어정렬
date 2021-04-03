@@ -26,5 +26,6 @@ for _ in range(N):
 
 s=list(s)
 s.sort()
+##
 s.sort(key=lambda x:len(x))
 print("\n".join(s))
