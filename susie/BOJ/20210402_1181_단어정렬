@@ -1,0 +1,30 @@
+# 리스트로 풀기
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+li = []
+
+for _ in range(N):
+    x = input().strip()
+    li.append(x)
+    
+li.sort(key = lambda x: (len(x),x))
+li = sorted(set(li),key=lambda x: li.index(x))
+for x in li:
+    print(x)
+    
+# 세트로 풀기
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+s = set()
+
+for _ in range(N):
+    s.add(input().rstrip())
+
+s=list(s)
+s.sort()
+s.sort(key=lambda x:len(x))
+print("\n".join(s))
