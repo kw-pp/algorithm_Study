@@ -1,0 +1,15 @@
+import sys
+input = sys.stdin.readline
+
+T = int(input())
+
+for _ in range(T):
+    N = int(input())
+    li = [int(x) for x in input().split()]
+    li.sort()
+
+    count = 0
+    for x in range(2, N):
+        count = max(count, abs(li[x] - li[x-2]))
+
+    print(count)
