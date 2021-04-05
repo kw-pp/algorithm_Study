@@ -1,0 +1,12 @@
+import sys
+input = sys.stdin.readline
+
+for _ in '0'*int(input()):
+    li = [input().rstrip() for x in '0'*int(input())]
+    li.sort()
+    ans = 'YES'
+    for x, y in zip(li, li[1:]):
+        if y.startswith(x):
+            ans = 'NO'
+            break
+    print(ans)
