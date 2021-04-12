@@ -53,6 +53,9 @@
 <br></br>
 ---
 <br></br>
+
+### 지난 기록 링크([https://github.com/jeong-yung-pangpang/Study/blob/main/report/README.md](https://github.com/jeong-yung-pangpang/Study/blob/main/report/README.md))
+
 ### 2021.03.29 ~
 
 - [x] 정렬
