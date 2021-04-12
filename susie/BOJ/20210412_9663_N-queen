@@ -1,0 +1,31 @@
+#N*N 체스판에 퀸 N개
+N = int(input())
+# x는 세로 직선
+x = [0 for x in range(N)]
+# y는 대각선 /
+y = [0 for y in range(2*N-1)]
+# z는 대각선 \
+z = [0 for z in range(2*N-1)]
+count = 0
+def N_Queen(num):
+    global count
+    #재귀를 N까지 반복하고 num이 N에 도달하는 순간
+    #값을 반환한다.
+    if num == N:
+        count += 1
+        return
+    #N까지 i를 돌린다.
+    for i in range(N):
+        #i=0, N=5라고 가정해본다.
+        #퀸이 세로대각선 다 없으면 == 0
+        if x[i] + y[num+i]+z[N-1+num-i]==0:
+            #관련 자리에 다 퀸 배치해버리기
+            x[i] = y[num+i] = z[N-1+num-i] = 1
+            #그리고 다음 행으로 넘어감
+            N_Queen(num+1)
+            #num이 N까지 가면 다 반환되어서 일루 넘어옴
+            #다음 케이스를 위한 리스트 초기화
+            x[i] = y[num+i] = z[N-1+num-i] = 0
+
+N_Queen(0)
+print(count)
