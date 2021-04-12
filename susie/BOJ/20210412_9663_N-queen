@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 #N*N 체스판에 퀸 N개
 N = int(input())
 # x는 세로 직선
