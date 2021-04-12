@@ -18,3 +18,6 @@ NP-hard 문제로 이 문제를 푸는 세 가지 방법([https://sungwoo91.tist
 
 ### DFS vs BFS
 알고리즘 문제를 해결할 때, 어떤 탐색 방법을 선택할 것인가? ([https://covenant.tistory.com/132](https://covenant.tistory.com/132))
+
+### Copy
+copy vs shallow copy vs deepcopy ([https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/](https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/))
