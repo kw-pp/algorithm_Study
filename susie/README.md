@@ -22,5 +22,8 @@ NP-hard 문제로 이 문제를 푸는 세 가지 방법([https://sungwoo91.tist
 ### Copy
 copy vs shallow copy vs deepcopy ([https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/](https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/))
 
+<br>
+### 시간복잡도
+
 ![sort 시간복잡도](https://user-images.githubusercontent.com/38692338/114449903-4cfd2380-9c10-11eb-98c1-9603f23e0695.jpg)
 ![자료구조 시간복잡도](https://user-images.githubusercontent.com/38692338/114449907-4e2e5080-9c10-11eb-8de0-96e4ad8083d7.jpg)
