@@ -1,0 +1,23 @@
+import sys
+input = sys.stdin.readline
+dic={}
+
+N=int(input())
+for i in range(N):
+    dic[i+1]=set()
+    print(dic)
+M=int(input())
+for j in range(M):
+    a, b=map(int, input().split())
+    dic[a].add(b)
+    print(dic)
+    dic[b].add(a)
+
+def dfs(start, dic):
+    for i in dic[start]:
+        if i not in visited:
+            visited.append(i)
+            dfs(i, dic)
+visited=[]
+dfs(1,dic)
+print(len(visited)-1)
