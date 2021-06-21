@@ -1,0 +1,7 @@
+def solution(phone_book):
+    phone_book.sort()
+    
+    for k, s in zip(phone_book, phone_book[1:]):
+        if s.startswith(k):
+            return False
+    return True
