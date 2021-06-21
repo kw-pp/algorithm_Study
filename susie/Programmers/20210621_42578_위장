@@ -1,0 +1,11 @@
+def solution(clothes):
+    dic = {}
+    for v,k in clothes:
+        if k in dic:
+            dic[k] += 1
+        else:
+            dic[k] = 1
+    cnt = 1
+    for x in dic.values():
+        cnt = cnt*(x+1)
+    return cnt-1
