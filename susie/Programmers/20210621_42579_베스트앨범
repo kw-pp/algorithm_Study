@@ -1,0 +1,17 @@
+def solution(genres, plays):
+    answer = []
+    cnt = {}
+    dic = {}
+
+    for i in range(len(genres)):
+        genre = genres[i]
+        play = plays[i]
+        cnt[genre] = cnt.get(genre, 0) + play
+        dic[genre] = dic.get(genre, []) + [(play,i)]
+
+    cnt = sorted(cnt.items(), key=lambda x:x[1], reverse=True)
+
+    for g,p in cnt:
+        dic[g] = sorted(dic[g], key=lambda x:(-x[0], x[1]))
+        answer += [idx for (play, idx) in dic[g][:2]]
+    return answer
