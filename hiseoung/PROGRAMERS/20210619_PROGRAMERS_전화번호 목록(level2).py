@@ -26,3 +26,5 @@ def solution(phone_book):
             if temp in hash_map and temp != phone_number:
                 answer = False
     return answer
+
+# 숫자 STRING --> 정렬하면 알파벳 순(자릿수) / 시작하는 문자가 정렬의 키
