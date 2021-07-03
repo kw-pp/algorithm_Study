@@ -2,7 +2,6 @@
 def solution(bridge_length, weight, truck_weights):
     answer = 0
     q = [0] * bridge_length
-    
     while q:
         answer += 1
         q.pop(0)
