@@ -12,7 +12,7 @@ def solution(phone_book):
 
 # 처음에는 for문 두번 돌리면서 특정 값에 대한 모든 값들 비교함 --> 시간초과
 # 이해가 안가는 건 인접한 값들에 대해서만 비교를 하는건데 이게 왜 통과가 되는건지..
-# startswith()을 사용하지 않고 딕셔너리(해시)를 이용해 푸는게 가능함
+# startswith()을 사용하지 않고 딕셔너리(해시)를 이용해 푸는게 가능함1
 
 def solution(phone_book):
     answer = True
