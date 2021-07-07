@@ -1,0 +1,6 @@
+def solution(citations):
+  citations.sort(reverse=True)
+  for x in range(len(citations)):
+    if citations[x] <= x: 
+      return x
+  return len(citations)
