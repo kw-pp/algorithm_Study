@@ -1,0 +1,26 @@
+def solution(answers):
+    answer = []
+    one_cnt, two_cnt, three_cnt = 0, 0, 0
+    one, two, three = [1,2,3,4,5], [2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]
+    
+    for i in range(len(answers)):
+      x = i%(len(one))
+      if one[x] == answers[i]:
+        one_cnt += 1
+    for j in range(len(answers)):
+      y = j%(len(two))
+      if two[y] == answers[j]:
+        two_cnt += 1
+    for k in range(len(answers)):
+      z = k%(len(three))
+      if three[z] == answers[k]:
+        three_cnt += 1
+    
+    a = max([one_cnt, two_cnt, three_cnt])
+    if one_cnt == a:
+        answer.append(1)
+    if two_cnt == a:
+        answer.append(2)
+    if three_cnt == a:
+        answer.append(3)
+    return answer
