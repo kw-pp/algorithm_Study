@@ -1,18 +1,18 @@
-brown = 12
-yellow = 6
+def solution(brown, yellow):
+    total = brown + yellow
+    li = []
 
-total = brown + yellow
-li = []
+    for i in range(2, total):
+        temp = (i, int(total / i))
+        li.append(temp)
 
-for i in range(2, total):
-    if total % i == 0:
-        if len(li) != 0 and (int(total/i), i) == li[-1]:
-            temp = (i, int(total / i))
-            li.append(temp)
-            break
-        else:
-            temp = (i, int(total/i))
-            li.append(temp)
+    for _ in range(len(li)):
+        if li:
+            x, y = li.pop()
+            if x >= y and (x - 2) * (y - 2) == yellow:
+                answer = (x, y)
+                break
+            else:
+                continue
 
-    print((li.pop()))
-
+    return answer
