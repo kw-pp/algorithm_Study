@@ -1,8 +1,8 @@
 # https://www.hamadevelop.me/algorithm-n-expression/
 def solution(N, number):
-    possible_set = [0,[N]] # 조합으로 나올수 있는 가능한 숫자들, 여기에 계속 append하며 이후에 사용함
     if N == number: #주어진 숫자와 사용해야 하는 숫자가 같은 경우는 1개면 족하므로 1으로 놓는다. 
         return 1
+    possible_set = [0,[N]] # 조합으로 나올수 있는 가능한 숫자들, 여기에 계속 append하며 이후에 사용함
     for i in range(2, 9): # 2부터 8까지로 횟수를 늘려 간다. 
         case_set = [] # 임시로 사용할 케이스 셋, 각 I 별로 셋을 만들어 possible set에 붙인다.
         basic_num = int(str(N)*i) # 같은 숫자 반복되는 거 하나를 추가한다.
@@ -31,12 +31,12 @@ def solution(N, number):
     S = [0, {N}]
     for i in range(2, 9):
         case_set = {int(str(N)*i)}
-        for i_half in range(1, i//2+1):  # S[i_half] S[1]
+        for i_half in range(1, i//2+1):
             for x in S[i_half]:
                 for y in S[i-i_half]:
                     case_set.add(x+y)
                     case_set.add(x-y)
-                    case_set.add(y-x) # y-x 케이스 추가
+                    case_set.add(y-x)
                     case_set.add(x*y)
                     if x != 0:
                         case_set.add(y//x)
