@@ -23,3 +23,26 @@ def solution(N, number):
                 return i
             possible_set.append(case_set) # 최종 결과물 set에 사칙 연산 결과를 더한다.
     return -1 #N 이 8까지 답이 없으면 -1을 출력한다.
+
+# => set 사용하여 시간 단축
+def solution(N, number):
+    if N == number:
+        return 1
+    S = [0, {N}]
+    for i in range(2, 9):
+        case_set = {int(str(N)*i)}
+        for i_half in range(1, i//2+1):  # S[i_half] S[1]
+            for x in S[i_half]:
+                for y in S[i-i_half]:
+                    case_set.add(x+y)
+                    case_set.add(x-y)
+                    case_set.add(y-x) # y-x 케이스 추가
+                    case_set.add(x*y)
+                    if x != 0:
+                        case_set.add(y//x)
+                    if y != 0:
+                        case_set.add(x//y)
+        if number in case_set:
+            return i
+        S.append(case_set)
+    return -1
