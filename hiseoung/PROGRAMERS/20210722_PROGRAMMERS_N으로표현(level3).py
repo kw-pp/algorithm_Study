@@ -1,34 +1,23 @@
-from collections import deque
+def solution(N, number):
+    answer = -1
+    dp = []
 
-N = 2
-number = 11
-answer = 0
+    for i in range(1, 9):
 
-if N == number:
-    answer = 1
-    # return 1
-else:
-    q = deque()
-    q.append(N)
-    breaker = False
-    while q:
-        if breaker:
+        temp = set()
+        temp.add(int(str(N) * i))
+
+        for j in range(0, i - 1):
+            for x in dp[j]:
+                for y in dp[-j - 1]:
+                    temp.add(x - y)
+                    temp.add(x + y)
+                    temp.add(x * y)
+                    if y != 0:
+                        temp.add(x // y)
+        if number in temp:
+            answer = i
             break
-        if answer > 8:
-            answer = -1
-        answer += 1
-        temp = []
-        for _ in range(len(q)):
-            x = q.pop()
-            if x == number:
-                breaker = True
-                break
-            temp.append(int(str(N) * (answer + 1)))
-            temp.append(x + N)
-            temp.append(x - N)
-            temp.append(N - x)
-            temp.append(x * N)
-            temp.append(x // N)
-            if x != 0:
-                temp.append(N // x)
-        q = deque((set(temp)))
+        dp.append(temp)
+
+    return answer
