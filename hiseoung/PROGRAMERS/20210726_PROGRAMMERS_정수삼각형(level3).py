@@ -1,4 +1,9 @@
 def solution(triangle):
+    '''
+    출처 : https://programmers.co.kr/learn/courses/30/lessons/43105
+    문제 유형 : 동적 계획법
+    풀이 시간 : 40분
+    '''
     tri_len = len(triangle)
     dp = [[0] * tri_len for _ in range(tri_len)]
     for i in range(tri_len):

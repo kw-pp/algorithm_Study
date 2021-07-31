@@ -1,4 +1,10 @@
 def solution(N, number):
+    '''
+    출처 : https://programmers.co.kr/learn/courses/30/lessons/42895
+    문제 유형 : 동적 계획법
+    풀이 시간 : 3시간 (답안 참고함)
+    '''
+
     answer = -1
     dp = []
 

@@ -1,4 +1,9 @@
 def solution(m, n, puddles):
+    '''
+    출처 : https://programmers.co.kr/learn/courses/30/lessons/43105
+    문제 유형 : 동적 계획법
+    풀이 시간 : 1시간
+    '''
     dp = [[0] * (m+1) for _ in range(n+1)]
 
     for i in range(1, n+1):
