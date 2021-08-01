@@ -4,6 +4,8 @@ def solution(n, computers):
     '''
     출처 : https://programmers.co.kr/learn/courses/30/lessons/43162
     문제 유형 : DFS/BFS
+    - 비어있는 2차원 배열을 선언할 때는 li = [ [] for _ in range(n) ] 이런 식으로 사용할 것!
+    - 그래프를 표현하는 두가지 방법 : 인접행렬 & 인접리스트
     '''
 
     # BFS 구현을 위한 큐를 선언합니다.
