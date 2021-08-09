@@ -21,7 +21,7 @@ def solution(tickets):
             q.append(adj[tmp].pop())
     answer.reverse()
     return answer
-
+.
 
 
 
