@@ -6,10 +6,12 @@ def solution(n, m, arr):
     출처 : https://www.acmicpc.net/problem/2206
     티어 : 골드 4
     유형 : BFS
-    - 시간초과!!!!
+    - 1차 시도 : 시간초과!!!!
+    - 2차 시도 : 반례는 다 넘기는데 시간초과 해결 못함 -> 3차원 배열 이용?!
     '''
 
-    Max = -1
+    Min = float('inf')
+    is_checked = False
 
     for r in range(n):
         for c in range(m):
@@ -36,12 +38,18 @@ def solution(n, m, arr):
                                     is_visited[x+a][y+b] = True
                                     q.append((x+a, y+b))
                     path += 1
-                if check and Max < path:
-                    Max = path
+                if check and Min > path:
+                    Min = path
+                    is_checked = True
+
                 arr[r][c] = '1'
             else:
                 continue
-    return Max
+
+    if not is_checked:
+        Min = False
+
+    return Min
 
 
 n, m = map(int, sys.stdin.readline().split())
