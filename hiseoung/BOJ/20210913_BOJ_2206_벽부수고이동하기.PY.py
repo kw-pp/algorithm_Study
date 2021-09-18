@@ -8,6 +8,7 @@ def solution(n, m, arr):
     유형 : BFS
     - 1차 시도 : 시간초과!!!!
     - 2차 시도 : 반례는 다 넘기는데 시간초과 해결 못함 -> 3차원 배열 이용?!
+    - 다시 풀어볼 문제!!
     '''
 
     Min = float('inf')
@@ -58,6 +59,5 @@ for i in range(n):
     arr.append(list(sys.stdin.readline().strip()))
 
 print(solution(n, m, arr))
-
 
 
