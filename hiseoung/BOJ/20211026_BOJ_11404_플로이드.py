@@ -33,5 +33,8 @@ solution11404()
 
 for i in busInfo:
     for j in i:
-        print(j, end=' ')
+        if j == float('inf'):
+            print(0, end=' ')
+        else:
+            print(j, end=' ')
     print()
