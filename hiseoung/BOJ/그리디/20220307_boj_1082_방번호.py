@@ -10,30 +10,21 @@ priceDP = [[roomPrice[i] for i in range(roomNo)]]
 while True:
     numTemp = []
     priceTemp = []
-    for i in range(roomNo):
+    for i in range(len(numberDP[-1])):
         if i == 0:
             priceTemp.append(0)
             numTemp.append(0)
         else:
-            priceList = [priceDP[-1][i] + priceDP[0][x] for x in range(roomNo)]
-            maxValue = 0
-            selectNum = -1
-            for j in range(roomNo):
-                if maxValue < priceList[j] <= totalPrice:
-                    maxValue = priceList[j]
-                    selectNum = j
-            priceTemp.append(maxValue)
-            try:
-                numTemp.append(int(str(numberDP[-1][i]) + str(selectNum)))
-            except Exception:
-                numTemp.append(0)
-    print(sum(priceTemp))
+            priceTemp.extend([priceDP[-1][i] + priceDP[0][x] for x in range(roomNo) if priceDP[-1][i] + priceDP[0][x] <= totalPrice])
+            numTemp.extend([int(str(numberDP[-1][i]) + str(y)) for y in range(roomNo) if priceDP[-1][i] + priceDP[0][y] <= totalPrice])
     if sum(priceTemp) == 0:
-        print(11)
         break
     numberDP.append(numTemp)
     priceDP.append(priceTemp)
 
-print(max(numberDP))
+if len(numberDP) == 1:
+    print(0)
+else:
+    print(max(map(max, numberDP)))
 
 
