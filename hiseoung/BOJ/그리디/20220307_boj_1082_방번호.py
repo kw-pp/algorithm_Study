@@ -1,30 +1,46 @@
 import sys
+from collections import deque
 
 roomNo = int(sys.stdin.readline())
 roomPrice = {key: value for key, value in enumerate(list(map(int, sys.stdin.readline().split())))}
 totalPrice = int(sys.stdin.readline())
+tableDP = [[(i, roomPrice[i]) for i in range(roomNo-1, -1, -1)]]
+priceTable = sorted(tableDP[0], key = lambda x:x[0], reverse=True)
+q = deque(tableDP[-1])
+temp = []
 
-numberDP = [[i for i in range(roomNo)]]
-priceDP = [[roomPrice[i] for i in range(roomNo)]]
+while q:
+    temp = list(q)
+    max_value = (0, 0)
 
-while True:
-    numTemp = []
-    priceTemp = []
-    for i in range(len(numberDP[-1])):
-        if i == 0:
-            priceTemp.append(0)
-            numTemp.append(0)
-        else:
-            priceTemp.extend([priceDP[-1][i] + priceDP[0][x] for x in range(roomNo) if priceDP[-1][i] + priceDP[0][x] <= totalPrice])
-            numTemp.extend([int(str(numberDP[-1][i]) + str(y)) for y in range(roomNo) if priceDP[-1][i] + priceDP[0][y] <= totalPrice])
-    if sum(priceTemp) == 0:
-        break
-    numberDP.append(numTemp)
-    priceDP.append(priceTemp)
+    for _ in range(len(q)):
+        x, y = q.popleft()
+        for a, b in priceTable:
+            if max_value[1] == 0 and y+b <= totalPrice and x != 0:
+                room = (int(str(x) + str(a)))
+                max_value = (room, y + b)
+                q.append(max_value)
+                continue
 
-if len(numberDP) == 1:
-    print(0)
+            if y+b < max_value[1] <= totalPrice:
+                room = (int(str(x)+str(a)))
+                max_value = (room, y+b)
+                q.append(max_value)
+
+    start_flag = 1
+
+if priceTable == temp:
+        max = -1
+        for i in range(len(temp)):
+            if max < temp[i][1] <= totalPrice:
+                max = temp[i][0]
+        print(max)
 else:
-    print(max(map(max, numberDP)))
+    print(temp[0][0])
+
+
+
+
+
 
 
