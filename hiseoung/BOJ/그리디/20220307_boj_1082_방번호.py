@@ -4,6 +4,7 @@ from collections import deque
 roomNo = int(sys.stdin.readline())
 roomPrice = {key: value for key, value in enumerate(list(map(int, sys.stdin.readline().split())))}
 totalPrice = int(sys.stdin.readline())
+
 tableDP = [[(i, roomPrice[i]) for i in range(roomNo-1, -1, -1)]]
 priceTable = sorted(tableDP[0], key = lambda x:x[0], reverse=True)
 q = deque(tableDP[-1])
@@ -26,8 +27,6 @@ while q:
                 room = (int(str(x)+str(a)))
                 max_value = (room, y+b)
                 q.append(max_value)
-
-    start_flag = 1
 
 if priceTable == temp:
         max = -1
