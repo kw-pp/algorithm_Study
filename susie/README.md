@@ -1,4 +1,8 @@
 # 문제 패턴에 대한 정보 요약 / 생각 / 참고 자료를 모아둔다.
+
+#2022.03 https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0
+이거 참고해보기
+
 #### 각 문제에 대한 tag는 commit 첨부한 것을 확인할 것.
 
 ### 피보나치 수
