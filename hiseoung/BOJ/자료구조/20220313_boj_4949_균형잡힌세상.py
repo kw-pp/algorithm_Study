@@ -5,29 +5,30 @@ result = []
 
 while True:
     sent = sys.stdin.readline().rstrip()
-    stack = []
-    is_stacked = 0
-    flag = 0
-
     if sent == '.':
         break
+
+    stack = []
+    flag = 0
 
     for char in sent:
         if char == '(':
             stack.append(')')
-            is_stacked += 1
         elif char == '[':
             stack.append(']')
-            is_stacked += 1
-        elif char == ')' or char == char == ']':
-            if is_stacked:
+        elif char == ')' or char == ']':
+            if stack:
                 if stack.pop() != char:
                     flag = 1
-                    is_stacked -= 1
+                else:
+                    continue
             else:
                 flag = 1
         else:
             continue
+
+    if stack:
+        flag = 1
 
     if flag:
         result.append('no')
