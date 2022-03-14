@@ -23,16 +23,16 @@
 ---
 ### :white_check_mark: 규칙
 #### 1. Commit message 작성 규칙
-- 풀이 소스 업로드 : [Week{num}] feat: 문제 이름_문제 번호
+- 풀이 소스 업로드 : [Week{num}] feat: 문제이름_문제번호
 - ex) `[Week1] feat: 균형잡힌세상_4949`
-- 풀이 소스 수정 : [Week{num}] patch: 문제 이름_문제 번호
+- 풀이 소스 수정 : [Week{num}] patch: 문제이름_문제번호
 - ex) `[Week1] patch: 균형잡힌세상_4949`
 #### 2. PR 작성 규칙
 - 제목은 `[Week{num}] 이름 : 문제 이름` 형식으로 작성합니다.
 - ex) `[Week1] 박영훈: 튜플, 거리두기 확인하기, 조이스틱, 위장, 순위 검색`
 #### 3. 문제 저장 규칙
-- `src/홍길동/week{num}/문제파일들`
-- ex) `src/younghun/week1/튜플.js or 튜플.python`
+- `홍길동/week{num}/문제이름_문제번호`
+- ex) `younghun/week1/균형잡힌세상_4949.js or 균형잡힌세상_4949.python`
 
 <br></br>
 
