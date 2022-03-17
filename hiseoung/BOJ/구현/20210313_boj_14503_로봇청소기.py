@@ -13,12 +13,10 @@ def rotate(direction):
 
 
 n, m = map(int, sys.stdin.readline().split())
-r, c, d = map(int, sys.stdin.readline().split())
+x, y, d = map(int, sys.stdin.readline().split())
 
 table = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-table[r][c] = 2
-x = r
-y = c
+table[x][y] = 2
 r_d = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
 while True:
@@ -38,8 +36,3 @@ while True:
         if table[x][y] == 1:
             print(sum([row.count(2) for row in table]))
             break
-
-
-
-
-
