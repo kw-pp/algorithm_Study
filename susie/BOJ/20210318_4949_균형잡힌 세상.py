@@ -7,7 +7,7 @@ while True:
   #스택 로직
   for x in str:
     if x == '.':
-      if len(stack) != 0:
+      if stack:
         print("no")
       else:
         print("yes")
@@ -15,13 +15,13 @@ while True:
     if x == '(' or x == '[':
       stack.append(x)
     elif x == ')':
-      if len(stack) == 0 or stack[-1] != '(':
+      if not stack or stack[-1] != '(':
         print("no")
         break
       else:
         stack.pop()
     elif x == ']':
-      if len(stack) == 0 or stack[-1] != '[':
+      if not stack or stack[-1] != '[':
         print("no")
         break
       else:
