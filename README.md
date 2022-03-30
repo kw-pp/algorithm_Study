@@ -31,9 +31,6 @@
 #### 2. PR 작성 규칙
 - 제목은 `[Week{num}] 이름` 형식으로 작성합니다.
 - ex) `[Week1] 박영훈`
-#### 3. 문제 저장 규칙
-- `홍길동/week{num}/문제이름_문제번호`
-- ex) `younghun/week1/균형잡힌세상_4949.js or 균형잡힌세상_4949.python`
 
 <br></br>
 
@@ -44,4 +41,4 @@
 |안희승|Python|
 |최수지|Python|
 |박영훈|Python|
-|조우현|JavaScript|
+|조우현|C++|
