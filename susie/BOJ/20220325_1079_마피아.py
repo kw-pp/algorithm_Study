@@ -9,22 +9,6 @@ dead = [0] * N
 dead_cnt = 0
 answer = 0
 
-#인원 홀수시 낮부터 시작, 유죄지수 탐색
-if N % 2 == 1:
-    idx = 0
-    guilt_point = 0
-    for i in range(N):
-        if guilt[i] > guilt_point:
-            guilt_point = guilt[i]
-            idx = i
-    
-    dead[idx] = 1
-    dead_cnt += 1
-   
-    if idx == my_pos:
-        my_pos = -1
-
-#밤부터 시작
 def solution(cnt, day):
     global N, my_pos, answer, dead_cnt
 
@@ -82,8 +66,11 @@ def solution(cnt, day):
                 cnt -= 1
                 for j in range(N):
                     guilt[j] -= arr[i][j]
-        
-if my_pos != -1:
+
+#인원 홀수시 낮부터 시작, 짝수일 경우 밤부터 시작
+if N % 2 == 1:
+    solution(0, 1)
+else:
     solution(0, 0)
 
 print(answer)
