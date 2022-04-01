@@ -9,9 +9,9 @@ dead = [0] * N
 dead_cnt = 0
 answer = 0
 
-#전체 인원이 홀수일때 밤에 한명 죽이기 (밤 시작)
+#인원 홀수시 낮부터 시작, 유죄지수 탐색
 if N % 2 == 1:
-    idx = -1
+    idx = 0
     guilt_point = 0
     for i in range(N):
         if guilt[i] > guilt_point:
@@ -20,11 +20,11 @@ if N % 2 == 1:
     
     dead[idx] = 1
     dead_cnt += 1
-    
-    #마피아에게 내가 암살당할 경우
+   
     if idx == my_pos:
         my_pos = -1
 
+#밤부터 시작
 def solution(cnt, day):
     global N, my_pos, answer, dead_cnt
 
