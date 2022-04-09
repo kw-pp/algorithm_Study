@@ -1,24 +1,19 @@
 import sys
 
-'''
-    - 시간복잡도가 O(N^2) -> 통과 X
-    - 
-'''
-
-
 N = int(sys.stdin.readline())
-arr = list(map(int, sys.stdin.readline().split()))
+stack = list(map(int, sys.stdin.readline().split()))
+answer = [-1 for _ in range(N)]
 
-# sol_1 : 반복문 중첩 사용하면서 Max 값 도출, python3, pypy 모두 시간 초과
-# sol = [[a for a in arr[i:] if a > arr[i]][0] if max(arr[i:]) > arr[i] else -1 \
-#        for i in range(len(arr))]
+stack.reverse()
+idx = 0
+temp = [(idx, stack.pop())]
 
-# sol_2
-sol = []
-for i in range(N):
-    for j in range(i):
-        if arr[i] < arr[j]:
-            sol.append(arr[j])
-            break
+while stack:
+    val = stack.pop()
+    idx += 1
 
-answer = [print(i, end=' ') for i in sol]
+    while temp and temp[-1][1] < val:
+        a, b = temp.pop()
+        answer[a] = val
+
+    temp.append((idx, val))
