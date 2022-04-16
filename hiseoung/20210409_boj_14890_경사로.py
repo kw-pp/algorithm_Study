@@ -1,3 +1,4 @@
+
 import sys
 
 N, L = map(int, sys.stdin.readline().split())
