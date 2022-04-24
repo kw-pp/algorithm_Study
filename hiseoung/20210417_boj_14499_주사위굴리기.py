@@ -13,7 +13,6 @@ def move_dice(x, y, dir, idx):
         x = x + 1
         for i in range(2):
 
-
         # 이동 후 좌표 값이 영역 내의 범위 해당하는지 체크
         if 0 <= x < N:
             if table[y][x] == 0:
