@@ -1,4 +1,5 @@
-INF = 2147000000
+
+INF = float('inf')
 n = int(input())
 rgb = []
 ans = INF
