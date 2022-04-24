@@ -18,7 +18,7 @@ for k, v in q_list:
     val_list = [False for _ in range(N + 1)]
     count = 0
     while q:
-        x, y, z = q.popleft()
+        x, y, z = q.pop()
         if not is_visited[x]:
             val = min(y, z)
             is_visited[x] = True
