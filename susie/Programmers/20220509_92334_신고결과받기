@@ -1,0 +1,21 @@
+from collections import defaultdict
+
+def solution(id_list, report, k):
+    answer = []
+    report_by = defaultdict(int)
+    report_to = defaultdict(list)
+    
+    for ele in report:
+        x, y = ele.split()
+        if y not in report_to[x]:
+            report_to[x].append(y)
+            report_by[y] += 1
+    for id in id_list:
+        cnt = 0
+        for i in report_to[id]:
+            if report_by[i] >= k:
+                cnt += 1
+        answer.append(cnt)
+    return answer
+    
+#훨씬 빠른 방법, report_to를 defaultdict(set)로 변경한다
