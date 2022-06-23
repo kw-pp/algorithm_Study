@@ -1,0 +1,53 @@
+from collections import defaultdict
+from collections import deque
+from math import ceil
+
+def solution(fees, records):
+    dic = defaultdict(list)
+    answer = []
+    #1. 차량 번호가 작은 순부터 정렬하기
+    records = deque(sorted(records, key = lambda x: (int(x[6:10]))))
+    #2. 맨 앞에서부터 popleft한 값의 차량번호와 뒷 값의 번호가 일치하는지 확인하기
+    while records:
+        car_in = records.popleft()
+        #car_in이 records상의 마지막 값이라면
+        if len(records) == 0:
+            h1, m1 = map(int, car_in[0:5].split(sep=':'))
+            h2, m2 = map(int, "23:59".split(sep=':'))
+            dic[car_in[6:10]].append(str(h2-h1) + ':' + str(m2-m1))
+            break
+        car_next = records[0]
+        #현재 차량이 out기록이 없을 경우 // 다음 값인 records[0]를 popleft 해줄 필요가 없음
+        if car_in[6:10] != car_next[6:10]:
+            #현재 시간부터 마지막 시간의 차를 계산한다
+            h1, m1 = map(int, car_in[0:5].split(sep=':'))
+            h2, m2 = map(int, "23:59".split(sep=':'))
+            #현재 차량이 out기록이 있을 경우
+        else:
+            car_next = records.popleft()
+            h1, m1 = map(int, car_in[0:5].split(sep=':'))
+            h2, m2 = map(int, car_next[0:5].split(sep=':'))
+        if m2 < m1:
+            time = str(h2-h1-1) + ':' + str(60-m1+m2)
+        else:
+            time = str(h2-h1) + ':' + str(m2-m1)
+        dic[car_in[6:10]].append(time)
+    #3. dic내부 차들의 요소를 돌면서 전체 시간 합산 값의 가격을 answer에 담기
+    for k in dic.keys():
+        #각 요소들 접근해서 서로 더하고, 기본 시간 초과하는지, 초과하지 않는지 확인한 후 요금 append
+        if len(dic[k]) > 1:
+            for item in dic[k][1:]:
+                h1, m1= map(int, dic[k][0].split(sep=':'))
+                h2, m2= map(int, item.split(sep=':'))
+                if m1+m2 > 59:
+                    dic[k][0] = str(h1+h2+1) + ':' + str(m1+m2-60)
+                else:
+                    dic[k][0] = str(h1+h2) + ':' + str(m1+m2)
+        #최종 요금 카운트
+        h1, m1 = map(int, dic[k][0].split(sep=':'))
+        money = h1*60 + m1
+        if money <= fees[0]:
+            answer.append(fees[1])
+        else:
+            answer.append(fees[1] + (ceil((money - fees[0]) / fees[2])) * fees[3])
+    return answer
