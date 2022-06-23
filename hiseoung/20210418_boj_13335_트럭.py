@@ -6,6 +6,7 @@ car_list = list(map(int, sys.stdin.readline().split()))
 car_list.reverse()
 bridge = deque()
 
+# 시작값을 배열에 입력
 t = 1
 bridge.append(car_list.pop())
 
