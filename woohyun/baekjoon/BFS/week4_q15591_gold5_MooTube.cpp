@@ -10,7 +10,6 @@ int answers[5000] = { 0, };
 
 void recommend(int index, int k, int video, int previous);
 
-// 경로 찾기 -> dfs
 int main() {
     cin >> videos >> questionCount;
 
