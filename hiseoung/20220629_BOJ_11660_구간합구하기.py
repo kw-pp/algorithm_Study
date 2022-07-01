@@ -32,3 +32,5 @@ for i in range(M):
 
         answer += sum(table[j][min_val_y:max_val_y+1])
     print(answer)
+
+    

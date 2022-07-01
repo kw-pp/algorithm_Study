@@ -11,7 +11,6 @@ for val in val_list:
         temp = ''.join(val)
         candidate.add(temp)
 
-
 print(sorted(list(candidate))[0]) if not candidate else print("I'm Sorry Hansoo")
 
 

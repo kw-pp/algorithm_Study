@@ -1,5 +1,5 @@
 import sys
-# 1 2 3 4 5 6 7 1 2 5 1 2 4
+
 T = int(sys.stdin.readline())
 for _ in range(T):
     # 사용자 값 입력

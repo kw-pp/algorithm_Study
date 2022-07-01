@@ -23,7 +23,6 @@ def rotate():
         robot[0][-1] = 0
 
 
-
 N, K = map(int, input().split())
 belt = iter(list(map(int, input().split())))
 belt = [deque(islice(belt, elem)) for elem in [N, N]]
