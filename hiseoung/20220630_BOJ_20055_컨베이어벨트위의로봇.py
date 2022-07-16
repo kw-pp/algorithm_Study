@@ -59,6 +59,7 @@ while True:
     if val >= K:
         break
 
+
 print(answer)
 
 
