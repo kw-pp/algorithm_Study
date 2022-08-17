@@ -28,5 +28,12 @@ def search_treasure(x, y):
 for i in range(n):
     for j in range(m):
         if table[i][j] == 'L':
-            max_val = max(max_val, search_treasure(i, j))
+            count = 0
+            for a, b in (1, 0), (0, 1), (-1, 0), (0, -1):
+                nx = i+a
+                ny = j+b
+                if 0 <= nx < n and 0 <= ny < m and table[nx][ny] == 'L':
+                    count += 1
+            if count < 3:
+                max_val = max(max_val, search_treasure(i, j))
 print(max_val)
