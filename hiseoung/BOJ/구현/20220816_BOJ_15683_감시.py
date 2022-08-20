@@ -2,6 +2,17 @@ import sys
 from collections import Counter
 input = sys.stdin.readline
 
+
+# CCTV 방향 Dict
+dirs = {
+    1: [[(1, 0)], [(0, 1)], [(-1, 0)], [(0, -1)]],
+    2: [((1, 0), (-1, 0)), ((0, 1), (0, -1))],
+    3: [((1, 0), (0, 1)), ((1, 0), (0, -1)), ((-1, 0), (0, -1)), ((-1, 0), (0, 1))],
+    4: [((1, 0), (0, 1), (0, -1)), ((1, 0), (0, -1), (-1, 0)), ((-1, 0), (0, -1), (0, 1)), ((-1, 0), (0, 1), (1, 0))],
+    5: [((1, 0), (-1, 0), (0, 1), (0, -1))],
+}
+
+
 # 주어진 방향으로 CCTV 탐색, 벽이 있으면 반환
 def view_cctv(x, y, a, b):
     area = []
@@ -33,49 +44,10 @@ def search_area(cctv, k, n):
     x, y, t = cctv[k]
     area = []
 
-    if t == 1:
-        # 1번 CCTV -> 네 방향 순회
-        for a, b in (1, 0), (0, 1), (-1, 0), (0, -1):
+    # CCTV 순회
+    for dir in dirs[t]:
+        for a, b in dir:
             area.append(view_cctv(x, y, a, b))
-            search_area(cctv, k + 1, n)
-            for pos in area:
-                for nx, ny in pos:
-                    office[nx][ny] = 0
-    elif t == 2:
-        # 2번 CCTV -> 두 방향 순회
-        for a, b, c, d in (1, 0, -1, 0), (0, 1, 0, -1):
-            area.append(view_cctv(x, y, a, b))
-            area.append(view_cctv(x, y, c, d))
-            search_area(cctv, k + 1, n)
-            for pos in area:
-                for nx, ny in pos:
-                    office[nx][ny] = 0
-    elif t == 3:
-        # 3번 CCTV -> 네 방향 순회
-        for a, b, c, d in (1, 0, 0, 1), (1, 0, 0, -1), (-1, 0, 0, -1), (-1, 0, 0, 1):
-            area.append(view_cctv(x, y, a, b))
-            area.append(view_cctv(x, y, c, d))
-            search_area(cctv, k + 1, n)
-            for pos in area:
-                for nx, ny in pos:
-                    office[nx][ny] = 0
-    elif t == 4:
-        # 4번 CCTV -> 네 방향 순회
-        for a, b, c, d, e, f in (1, 0, 0, 1, 0, -1), (1, 0, 0, -1, -1, 0), (-1, 0, 0, -1, 0, 1), (-1, 0, 0, 1, 1, 0):
-            area.append(view_cctv(x, y, a, b))
-            area.append(view_cctv(x, y, c, d))
-            area.append(view_cctv(x, y, e, f))
-            search_area(cctv, k + 1, n)
-            for pos in area:
-                for nx, ny in pos:
-                    office[nx][ny] = 0
-    elif t == 5:
-        # 5번 CCTV -> 모든 방향 탐색이므로 한번만 처리
-        a, b, c, d, e, f, g, h = 1, 0, -1, 0, 0, 1, 0, -1
-        area.append(view_cctv(x, y, a, b))
-        area.append(view_cctv(x, y, c, d))
-        area.append(view_cctv(x, y, e, f))
-        area.append(view_cctv(x, y, g, h))
         search_area(cctv, k + 1, n)
         for pos in area:
             for nx, ny in pos:
