@@ -1,120 +1,46 @@
-import sys
 from itertools import product
 from copy import deepcopy
 
+n, m = map(int, input().split())
+office, cctv, camera_num = [], [], 0
 
-answer = []
-n, m = map(int, sys.stdin.readline().split())
-office = [sys.stdin.readline().split() for _ in range(n)]
-table = []
-cameras = []
-
-
-def zero_cnt():
-    cnt = 0
-    for i in range(n):
-        for j in range(m):
-            if table[i][j] == '0':
-                cnt += 1
-    return cnt
-
-
-def dfs(x, y, direction):
-    dx = [-1, 1, 0, 0]
-    dy = [0, 0, -1, 1]
-
-    if direction == 'U':
-        nx = x + dx[0]
-        ny = y + dy[0]
-    elif direction == 'D':
-        nx = x + dx[1]
-        ny = y + dy[1]
-    elif direction == 'L':
-        nx = x + dx[2]
-        ny = y + dy[2]
-    elif direction == 'R':
-        nx = x + dx[3]
-        ny = y + dy[3]
-    if nx < 0 or nx >= n or ny < 0 or ny >= m:
-        return
-    if table[nx][ny] == '6':
-        return
-    if table[nx][ny] == '0':
-        table[nx][ny] = '#'
-    dfs(nx, ny, direction)
-    return
-
+for _ in range(n):
+    office.append(list(map(int, input().split())))
 
 for i in range(n):
     for j in range(m):
-        if office[i][j] == '1':
-            cameras.append(['U', 'D', 'L', 'R'])
-        elif office[i][j] == '2':
-            cameras.append(['U', 'L'])
-        elif office[i][j] == '3':
-            cameras.append(['U', 'D', 'L', 'R'])
-        elif office[i][j] == '4':
-            cameras.append(['U', 'D', 'L', 'R'])
-        elif office[i][j] == '5':
-            cameras.append(['U'])
+        if office[i][j]:
+            camera_num += 1
+        if 1 <= office[i][j] <= 5:
+            cctv.append((i, j))
+direction = {
+    1: [[0], [1], [2], [3]],
+    2: [[0, 2], [1, 3]],
+    3: [[0, 1], [1, 2], [2, 3], [3, 0]],
+    4: [[0, 1, 2], [1, 2, 3], [2, 3, 0], [3, 0, 1]],
+    5: [[0, 1, 2, 3]]
+}
 
-cases = list(product(*cameras))
+dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
+temp, max_cnt = [], 0
 
-for case in cases:
-    camera_num = 0
+for x, y in cctv:
+    temp.append(direction[office[x][y]])
+
+for prod in list(product(*temp)):
+    cnt = 0
     table = deepcopy(office)
-    for i in range(n):
-        for j in range(m):
-            if table[i][j] == '1':
-                dfs(i, j, case[camera_num])
-                camera_num += 1
-            elif table[i][j] == '2':
-                if case[camera_num] == 'U':
-                    dfs(i, j, 'U')
-                    dfs(i, j, 'D')
-                elif case[camera_num] == 'L':
-                    dfs(i, j, 'L')
-                    dfs(i, j, 'R')
-                camera_num += 1
-            elif table[i][j] == '3':
-                if case[camera_num] == 'U':
-                    dfs(i, j, 'U')
-                    dfs(i, j, 'R')
-                elif case[camera_num] == 'D':
-                    dfs(i, j, 'D')
-                    dfs(i, j, 'L')
-                elif case[camera_num] == 'L':
-                    dfs(i, j, 'L')
-                    dfs(i, j, 'U')
-                elif case[camera_num] == 'R':
-                    dfs(i, j, 'R')
-                    dfs(i, j, 'D')
-                camera_num += 1
-            elif table[i][j] == '4':
-                if case[camera_num] == 'U':
-                    dfs(i, j, 'U')
-                    dfs(i, j, 'L')
-                    dfs(i, j, 'R')
-                elif case[camera_num] == 'D':
-                    dfs(i, j, 'D')
-                    dfs(i, j, 'L')
-                    dfs(i, j, 'R')
-                elif case[camera_num] == 'L':
-                    dfs(i, j, 'L')
-                    dfs(i, j, 'U')
-                    dfs(i, j, 'D')
-                elif case[camera_num] == 'R':
-                    dfs(i, j, 'R')
-                    dfs(i, j, 'U')
-                    dfs(i, j, 'D')
-                camera_num += 1
-            elif table[i][j] == '5':
-                dfs(i, j, 'U')
-                dfs(i, j, 'D')
-                dfs(i, j, 'L')
-                dfs(i, j, 'R')
-                camera_num += 1
-    answer.append(zero_cnt())
 
-print(min(answer))
-
+    for i in range(len(cctv)):
+        for d in prod[i]:
+            t, s = cctv[i][0], cctv[i][1]
+            while True:
+                nx, ny = t + dx[d], s + dy[d]
+                if nx < 0 or nx >= n or ny < 0 or ny >= m or office[nx][ny] == 6:
+                    break
+                if table[nx][ny] == 0:
+                    table[nx][ny] = 7
+                    cnt += 1
+                t, s = nx, ny
+    max_cnt = max(max_cnt, cnt)
+print(n * m - camera_num - max_cnt)
