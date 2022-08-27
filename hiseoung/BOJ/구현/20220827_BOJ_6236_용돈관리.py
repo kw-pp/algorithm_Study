@@ -3,9 +3,11 @@ input = sys.stdin.readline
 
 n, m = map(int, input().split())
 table = [int(input()) for _ in range(n)]
-_min, _max = min(table), sum(table)
+# 탐색 범위 지정
+_min, _max = 1, int(1e9)
 result = _min
 
+# 인출 횟수 반환 : 현재 주어진 돈 기준 
 def get_num_withdrawal(cash):
     count = 0
     current = 0
@@ -27,4 +29,3 @@ while _min <= _max:
         _max = mid - 1
         result = mid
 print(result)
-
