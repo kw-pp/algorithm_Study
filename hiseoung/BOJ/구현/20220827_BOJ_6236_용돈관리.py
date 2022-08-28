@@ -28,4 +28,4 @@ while _min <= _max:
     else:
         _max = mid - 1
         result = mid
-print(result)
+print(result) 
