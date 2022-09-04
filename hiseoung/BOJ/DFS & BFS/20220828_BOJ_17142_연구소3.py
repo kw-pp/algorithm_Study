@@ -34,6 +34,7 @@ def bfs(virus):
         is_visited[x][y] = True
 
     while q:
+        # 더 이상 탐색할 방이 없다면 루프 종료
         if num == 0:
             break
         for _ in range(len(q)):
@@ -52,6 +53,7 @@ def bfs(virus):
                         q.append((nx, ny))
                         is_visited[nx][ny] = True
         count += 1
+    # 모든 방을 탐색할 수 있는 경우에만 진행 시간 반환
     return float('inf') if num != 0 else count
 
 for virus in virus_list:
