@@ -10,6 +10,7 @@ answer = []
 
 def dfs(k):
     global _max, _min
+    # 탈출 조건 : 현재 부등호 개수보다 배열 요소가 하나 더 많은 경우
     if k == len(signs):
         val = int(''.join(answer))
         _max = max(_max, val)
