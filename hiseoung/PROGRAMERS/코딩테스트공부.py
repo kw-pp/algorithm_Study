@@ -1,9 +1,3 @@
-'''
-정확성 : 45
-효율성 : 15
-합계 : 55 / 100
-'''
-
 def solution(alp, cop, problems):
     # DP 배열 범위 조정을 위해 알고력, 코딩력 최댓값 계산
     alp_max = sorted(problems, key=lambda x:x[0], reverse=True)[0][0]
@@ -35,11 +29,14 @@ def solution(alp, cop, problems):
 
             # 문제 풀이 경우
             for q in problems:
+                # 앞에 두개 조건은 참조하는 칸의 알고력, 코딩력이 해당 문제를 풀 수 있는지 체크
+                # 뒤에 두개 조건은 참조하는 칸이 DP 배열 시작 범위에 들어가는지 체크
                 if i - q[2] >= q[0] + 1 and j - q[3] >= q[1] + 1 and i - q[2] >= alp + 1 and j - q[3] >= cop + 1:
-                        dp[i][j] = min(dp[i][j], dp[i - q[2]][j - q[3]] + q[4], dp[i - q[2]][j] + q[4], dp[i][j - q[3]] + q[4])
-                if i - q[2] >= q[0] + 1 and i - q[2] >= alp + 1:
+                    dp[i][j] = min(dp[i][j], dp[i - q[2]][j - q[3]] + q[4])
+                # 기존 알고력, 코딩력 중 코딩력 조건 만족하고, 알고력 만족하지 못하는 경우
+                if i - q[2] >= q[0] + 1 and i - q[2] >= alp + 1 and cop == cop_max:
                     dp[i][j] = min(dp[i][j], dp[i - q[2]][j] + q[4])
-                if j - q[3] >= q[1] + 1 and j - q[3] >= cop + 1:
+                # 기존 알고력, 코딩력 중 알고력 조건 만족하고, 코딩력 만족하지 못하는 경우
+                if j - q[3] >= q[1] + 1 and j - q[3] >= cop + 1 and alp == alp_max:
                     dp[i][j] = min(dp[i][j], dp[i][j - q[3]] + q[4])
-
     return dp[-1][-1]
