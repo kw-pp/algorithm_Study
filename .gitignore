@@ -129,3 +129,20 @@ dmypy.json
 .pyre/
 
 .idea/
+
+# Vscode
+.vscode
+
+# Node_modules
+node_modules/
+
+# Json files
+package-lock.json
+package.json
+tsconfig.json
+
+# DS_Store
+.DS_Store
+
+# Typescript trial extension files
+.d.ts
