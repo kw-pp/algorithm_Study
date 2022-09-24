@@ -13,7 +13,7 @@ def make_n_num(decimal, n):  # 10진수를 n진수로 변환
             r = hex(r)[2:].upper()
         n_num.appendleft(str(r))
 
-    return list(n_num)
+    return n_num
 
 
 def solution(n, t, m, p):
